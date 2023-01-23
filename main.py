@@ -18,3 +18,7 @@ while True:
             tankas.atgal()
         case "x":
             tankas.sauti()
+    if tankas.taskai <= 0:
+        print("Žaidimas baigtas")
+        print(f"Nušauta priešų: {tankas.nusauta}")
+        break

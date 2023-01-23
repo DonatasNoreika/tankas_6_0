@@ -10,28 +10,34 @@ class Tankas:
         self.prieso_x = random.randint(-10, 10)
         self.prieso_y = random.randint(-10, 10)
         self.nusauta = 0
+        self.taskai = 100
 
     def pirmyn(self):
         self.y += + 1
         self.kryptis = "Šiaurė"
+        self.taskai -= 10
 
     def atgal(self):
         self.y -= 1
         self.kryptis = "Pietūs"
+        self.taskai -= 10
 
     def kairen(self):
         self.x -= 1
         self.kryptis = "Vakarai"
+        self.taskai -= 10
 
     def desinen(self):
         self.x += 1
         self.kryptis = "Rytai"
+        self.taskai -= 10
 
     def sauti(self):
         self.suviai[self.kryptis] += 1
         if self.ar_pataike():
             print("Pataikei!")
             self.nusauta += 1
+            self.taskai += 50
             self.prieso_x = random.randint(-10, 10)
             self.prieso_y = random.randint(-10, 10)
         else:
@@ -66,4 +72,4 @@ class Tankas:
         print(f"Tankas: x: {self.x}, y: {self.y}, kryptis: {self.kryptis}")
         print(f"Priešas x: {self.prieso_x}, y: {self.prieso_y}")
         print(f"Šūviai: {self.suviai}, bendrai: {sum(self.suviai.values())}")
-        print(f"Nušauta: {self.nusauta}")
+        print(f"Nušauta: {self.nusauta}, taškai: {self.taskai}")
