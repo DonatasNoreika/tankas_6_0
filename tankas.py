@@ -9,6 +9,7 @@ class Tankas:
         self.suviai = {"Šiaurė": 0, "Pietūs": 0, "Vakarai": 0, "Rytai": 0}
         self.prieso_x = random.randint(-10, 10)
         self.prieso_y = random.randint(-10, 10)
+        self.nusauta = 0
 
     def pirmyn(self):
         self.y += + 1
@@ -28,6 +29,24 @@ class Tankas:
 
     def sauti(self):
         self.suviai[self.kryptis] += 1
+        if self.ar_pataike():
+            print("Pataikei!")
+            self.nusauta += 1
+            self.prieso_x = random.randint(-10, 10)
+            self.prieso_y = random.randint(-10, 10)
+        else:
+            print("Nepataikei :(")
+
+    def ar_pataike(self):
+        if self.x == self.prieso_x and self.kryptis == "Šiaurė" and self.prieso_y > self.y:
+            return True
+        if self.x == self.prieso_x and self.kryptis == "Pietūs" and self.prieso_y < self.y:
+            return True
+        if self.y == self.prieso_y and self.kryptis == "Vakarai" and self.prieso_x < self.x:
+            return True
+        if self.y == self.prieso_y and self.kryptis == "Rytai" and self.prieso_x > self.x:
+            return True
+        return False
 
     def rodyti_musio_lauka(self):
         for y in range(10, -11, -1):
@@ -47,3 +66,4 @@ class Tankas:
         print(f"Tankas: x: {self.x}, y: {self.y}, kryptis: {self.kryptis}")
         print(f"Priešas x: {self.prieso_x}, y: {self.prieso_y}")
         print(f"Šūviai: {self.suviai}, bendrai: {sum(self.suviai.values())}")
+        print(f"Nušauta: {self.nusauta}")
