@@ -5,7 +5,7 @@ tankas = Tankas()
 
 while True:
     tankas.info()
-    veiksmas = input("a - kairėn\nd - dešinėn\nw - pirmyn\ns - atgal\n")
+    veiksmas = input("a - kairėn\nd - dešinėn\nw - pirmyn\ns - atgal\nx - šauti\n")
     match veiksmas:
         case "a":
             tankas.kairen()
@@ -15,3 +15,5 @@ while True:
             tankas.pirmyn()
         case "s":
             tankas.atgal()
+        case "x":
+            tankas.sauti()
