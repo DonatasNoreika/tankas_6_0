@@ -25,6 +25,18 @@ class Tankas:
     def sauti(self):
         self.suviai[self.kryptis] += 1
 
+    def rodyti_musio_lauka(self):
+        for y in range(10, -11, -1):
+            for x in range(-10, 11):
+                if x == self.x and y == self.y:
+                    print("X ", end="")
+                elif x == 0 or y == 0:
+                    print("| ", end="")
+                else:
+                    print("_ ", end="")
+            print()
+
+
     def info(self):
         print(f"x: {self.x}, y: {self.y}, kryptis: {self.kryptis}")
         print(f"Šūviai: {self.suviai}, bendrai: {sum(self.suviai.values())}")
